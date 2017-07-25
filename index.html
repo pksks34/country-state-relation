@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+<body ng-app="myApp">
+<div ng-controller="myctrl">
+    <select ng-model="myvar">
+        <option value="">Select Country</option>
+        <option value="india">India</option>
+        <option value="usa">USA</option>
+        <option value="australia">Australia</option>
+    </select>
+    <div ng-switch="myvar">
+        <div ng-switch-when="india">
+            <select>
+                <option ng-repeat="x in india">{{x}}</option>
+            </select>
+        </div>
+        <div ng-switch-when="usa">
+            <select>
+                <option ng-repeat="x in usa">{{x}}</option>
+            </select>
+        </div>
+        <div ng-switch-when="australia">
+            <select>
+                <option ng-repeat="x in australia">{{x}}</option>
+            </select>
+        </div>
+    </div>
+</div>
+<script>
+var app=angular.module('myApp',[]);
+    app.controller('myctrl',function($scope){
+    $scope.india=["select state","bihar","delhi","mumbai","bilaspur"];
+        $scope.usa=["select state","arozona","texas","california"];
+        $scope.australia=["select state","perth","malbourne","sydney"];
+    });
+</script>
+</body>
+</html>
